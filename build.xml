@@ -1,0 +1,39 @@
+<project name="sample" default="run" basedir=".">
+    <target name="help">
+        <arg value="${arg0}"/>
+        <arg value="${arg1}"/>
+        <echo>Simple JMS client which subscribes a queue in WSO2 MB and display the received message
+        </echo>
+    </target>
+	
+    <property name="class.dir" value="target/classes"/>
+
+    <target name="clean">
+        <delete dir="target" quiet="true"/>
+        <delete dir="${class.dir}" quiet="true"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="org.sample.jms.Main"
+              classpathref="javac.classpath" fork="true">        
+		<arg value="${arg0}"/>
+        <arg value="${arg1}"/>
+		</java>
+    </target>
+
+    <target name="compile" depends="init" description="Compile all Java">
+        <javac srcdir="src" destdir="${class.dir}">
+            <classpath refid="javac.classpath"/>
+        </javac>
+    </target>
+
+    <target name="init">
+        <mkdir dir="${class.dir}"/>
+        <path id="javac.classpath">
+            <pathelement path="${class.dir}"/>
+            <fileset dir="./lib">
+                <include name="*.jar"/>
+            </fileset>
+        </path>
+    </target>
+</project>
