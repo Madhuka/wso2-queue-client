@@ -22,7 +22,7 @@ public class SampleQueueReceiver {
     private static String CARBON_CLIENT_ID = "carbon";
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
-    private static String CARBON_DEFAULT_PORT = "5672";
+    private static String CARBON_DEFAULT_PORT = "5676";
     String queueName = "testQueue";
     private QueueConnection queueConnection;
     private QueueSession queueSession;

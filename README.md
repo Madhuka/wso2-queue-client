@@ -8,4 +8,4 @@ Copy WSO2 MB 'client-lib' jars to lib directory in here.
 ant
 
 ## To Run 
-ant arg0=<payload-file-name>
+ant -Darg0=<payload-file-name>

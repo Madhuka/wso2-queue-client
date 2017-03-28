@@ -10,11 +10,11 @@ public class Main {
 	
 	public static void main(String[] args) throws NamingException, JMSException {
 		fileName = args[0];
-        SampleQueueReceiver queueReceiver = new SampleQueueReceiver();
-        MessageConsumer consumer = queueReceiver.registerSubscriber();
+        //SampleQueueReceiver queueReceiver = new SampleQueueReceiver();
+        //MessageConsumer consumer = queueReceiver.registerSubscriber();
         SampleQueueSender queueSender = new SampleQueueSender();
         queueSender.sendMessages(fileName);
-        queueReceiver.receiveMessages(consumer);
+        //queueReceiver.receiveMessages(consumer);
 
     }
 

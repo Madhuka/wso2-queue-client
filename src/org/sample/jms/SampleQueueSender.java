@@ -26,8 +26,8 @@ public class SampleQueueSender {
     private static String CARBON_CLIENT_ID = "carbon";
     private static String CARBON_VIRTUAL_HOST_NAME = "carbon";
     private static String CARBON_DEFAULT_HOSTNAME = "localhost";
-    private static String CARBON_DEFAULT_PORT = "5672";
-    String queueName = "testQueue";
+    private static String CARBON_DEFAULT_PORT = "5676";
+    String queueName = "ColleagueQueue";
     private QueueConnection queueConnection;
     private QueueSession queueSession;
 
@@ -59,6 +59,7 @@ public class SampleQueueSender {
 			e.printStackTrace();
 		}
         TextMessage textMessage = queueSession.createTextMessage(msg);
+        textMessage.setStringProperty("Content_Type", "application/json");
         javax.jms.QueueSender queueSender = queueSession.createSender(queue);
         queueSender.send(textMessage);
         queueSender.close();
